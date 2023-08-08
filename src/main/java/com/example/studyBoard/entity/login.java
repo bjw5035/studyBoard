@@ -1,13 +1,14 @@
 package com.example.studyBoard.entity;
 
+import jakarta.persistence.Entity;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.*;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 
 @Getter
 @Setter
-@EntityScan
+@Entity
 public class login {
+
 }
