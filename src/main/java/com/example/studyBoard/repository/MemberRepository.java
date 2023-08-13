@@ -4,6 +4,9 @@ import com.example.studyBoard.domain.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.Optional;
+
 
 /*
 * 이 인터페이스는 DB에서 데이터를 가져오는 퍼시스턴트 계층 역할
@@ -12,4 +15,5 @@ import org.springframework.stereotype.Repository;
 * */
 @Repository
 public interface MemberRepository extends JpaRepository<Member, String> {
+    Optional<Member> findById(String id);  // id로 사용자 정보를 가져옴
 }

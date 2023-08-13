@@ -6,19 +6,19 @@ spring:
       username: user1
       password: rootpass1!!
 
-  jpa:
-    show-sql: true  # 전송 쿼리 확인
-    open-in-view: true
-    hibernate:
-      ddl-auto: create  # 기존 케이블을 삭제 후 다시 생성하게 된다.(운영때에는 금지!)
-      naming:
-        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-    show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
-        dialect: org.hibernate.dialect.MySQL8InnoDBDialect
-
-        logging:
-          level:
-            org.hibernate.SQL: debug
+#  jpa:
+#    show-sql: true  # 전송 쿼리 확인
+#    open-in-view: true
+#    hibernate:
+#      ddl-auto: create  # 기존 케이블을 삭제 후 다시 생성하게 된다.(운영때에는 금지!)
+#      naming:
+#        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        format_sql: true
+#        dialect: org.hibernate.dialect.MySQL8InnoDBDialect
+#
+#        logging:
+#          level:
+#            org.hibernate.SQL: debug
