@@ -8,12 +8,10 @@ import java.util.logging.Logger;
 @Controller
 public class loginController {
 
-//    private final MemberService memberService;
-
     @GetMapping("/login")
     public String login() {
 
-        Logger.info("test");
+//        Logger.info("test");
         return "login";
     }
 

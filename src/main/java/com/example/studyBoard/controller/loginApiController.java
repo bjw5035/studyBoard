@@ -17,7 +17,7 @@ public class loginApiController {
 
     private final MemberService memberService;
 
-    @PostMapping("/login")
+    @PostMapping("/api/login")
     public String signup(AddMemberRequest request) {
         memberService.save(request);  // 회원 가입 메서드 호출
         return "redirect:/login";  // 회원 가입이 완료된 이후에 로그인 페이지로 이동
