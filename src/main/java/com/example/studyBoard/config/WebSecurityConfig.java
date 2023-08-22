@@ -29,6 +29,7 @@ public class WebSecurityConfig implements UserDetailsService{
                 // 주석처리(에러 원인)
 //                .requestMatchers(toH2Console())
                 .requestMatchers("/static/**");
+//                .requestMatchers("/resource/**");
     }
 
     // 특정 HTTP 요청에 대한 웹 기반 보안 구성
