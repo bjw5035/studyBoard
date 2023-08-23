@@ -1,6 +1,6 @@
 package com.example.studyBoard.repository;
 
-import com.example.studyBoard.domain.Member;
+import com.example.studyBoard.domain.MemberEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,6 +13,8 @@ import java.util.Optional;
 * <엔티티 이름, 엔티티 기본키의 타입>
 * */
 @Repository
-public interface MemberRepository extends JpaRepository<Member, String> {
-    Optional<Member> findById(String id);  // id로 사용자 정보를 가져옴
+public interface MemberRepository extends JpaRepository<MemberEntity, String> {
+    Optional<MemberEntity> findById(String id);  // id로 사용자 정보를 가져옴
+
+    Optional<MemberEntity> save(String id, String pw);
 }

@@ -1,6 +1,6 @@
 package com.example.studyBoard.controller;
 
-import com.example.studyBoard.domain.Member;
+import com.example.studyBoard.domain.MemberEntity;
 import com.example.studyBoard.dto.AddMemberRequest;
 import com.example.studyBoard.repository.MemberRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -66,11 +66,11 @@ class loginApiControllerTest {
         // then
         result.andExpect(status().isCreated());
 
-        List<Member> members = memberRepository.findAll();
+        List<MemberEntity> memberEntities = memberRepository.findAll();
 
-        assertThat(members.size()).isEqualTo(1);  // 크기가 1인지 검증
-        assertThat(members.get(0).getId()).isEqualTo(id);
-        assertThat(members.get(0).getPw()).isEqualTo(pw);
+        assertThat(memberEntities.size()).isEqualTo(1);  // 크기가 1인지 검증
+        assertThat(memberEntities.get(0).getId()).isEqualTo(id);
+        assertThat(memberEntities.get(0).getPw()).isEqualTo(pw);
 
     }
 

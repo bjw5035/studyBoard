@@ -1,6 +1,5 @@
 package com.example.studyBoard.controller;
 
-import com.example.studyBoard.domain.Member;
 import com.example.studyBoard.dto.AddMemberRequest;
 import com.example.studyBoard.dto.MemberResponse;
 import com.example.studyBoard.service.MemberService;
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 

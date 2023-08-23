@@ -1,6 +1,6 @@
 package com.example.studyBoard.dto;
 
-import com.example.studyBoard.domain.Member;
+import com.example.studyBoard.domain.MemberEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,8 +16,8 @@ public class AddMemberRequest {
     private String id;
     private String pw;
 
-    public Member toEntity() {  // 생성자를 사용해 객체 생성
-        return Member.builder()
+    public MemberEntity toEntity() {  // 생성자를 사용해 객체 생성
+        return MemberEntity.builder()
                 .id(id)
                 .pw(pw)
                 .build();

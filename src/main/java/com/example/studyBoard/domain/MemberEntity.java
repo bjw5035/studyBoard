@@ -16,7 +16,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity  // 엔티티 지정
-public class Member implements UserDetails {  // UserDetails를 상속받아 인증 객체로 사용
+public class MemberEntity implements UserDetails {  // UserDetails를 상속받아 인증 객체로 사용
 
     @Id  // id 필드를  기본키로 지정
     @GeneratedValue(strategy = GenerationType.IDENTITY) // 기본키를 자동으로 1씩 증가
@@ -28,14 +28,16 @@ public class Member implements UserDetails {  // UserDetails를 상속받아 인
 
 
     @Builder  // 빌더 패턴으로 객체 생성
-    public Member(String id, String pw) {
+    public MemberEntity(String id, String pw) {
         this.id = id;
         this.pw = pw;
     }
 
-    public void save(String id, String pw) {
+    public MemberEntity save(String id, String pw) {
         this.id = id;
         this.pw = pw;
+
+        return save(id, pw);
     }
 
     @Override  // 권한 반환
