@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -18,7 +19,8 @@ import static org.springframework.boot.autoconfigure.security.servlet.PathReques
 
 @RequiredArgsConstructor
 @Configuration
-public class WebSecurityConfig implements UserDetailsService{
+@EnableWebSecurity
+public class WebSecurityConfig implements UserDetailsService {
 
     private final MemberDetailsService memberDetailsService;
 
@@ -84,8 +86,14 @@ public class WebSecurityConfig implements UserDetailsService{
                 .anyRequest().authenticated());
         http.logout(logoutConfigurer -> logoutConfigurer.logoutSuccessUrl("/"));
 //        http.oauth2Login(oauth2Login -> oauth2Login.userInfoEndpoint(userInfoEndpointConfig -> userInfoEndpointConfig.userService(customOAuth2UserService)).loginPage("/login"));
-        http.formLogin(httpSecurityFormLoginConfigurer -> httpSecurityFormLoginConfigurer.loginPage("/login").loginProcessingUrl("/").usernameParameter("id").passwordParameter("password").loginProcessingUrl("/login"));
-        http.headers(httpSecurityHeadersConfigurer -> httpSecurityHeadersConfigurer.frameOptions(frameOptionsConfig -> frameOptionsConfig.disable()));
+        http.formLogin(httpSecurityFormLoginConfigurer -> httpSecurityFormLoginConfigurer
+                .loginPage("/login")
+                .loginProcessingUrl("/")  // loginProcessingUrl안에 주소를 설정해주면 해당 URL로 진입 시 Spring Security가 로그인 기능을 위임받아 처리한다.
+                .usernameParameter("id")
+                .passwordParameter("password")
+                .loginProcessingUrl("/login"));
+        http.headers(httpSecurityHeadersConfigurer -> httpSecurityHeadersConfigurer
+                .frameOptions(frameOptionsConfig -> frameOptionsConfig.disable()));
         return http.build();
     }
 

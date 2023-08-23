@@ -5,6 +5,7 @@ import com.example.studyBoard.dto.AddMemberRequest;
 import com.example.studyBoard.dto.MemberResponse;
 import com.example.studyBoard.service.MemberService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,8 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @Controller
+@Slf4j
 @RequiredArgsConstructor
-@RestController // HTTP Response Body에 객체 데이터를 JSON 형식으로 반환하는 컨트롤러
+
+// 에러 원인 (GetMapping에서 주소를 받아 return에 JSON으로 반환하기때문)
+//@RestController // HTTP Response Body에 객체 데이터를 JSON 형식으로 반환하는 컨트롤러
 public class loginController {
 
     private final MemberService memberService;
