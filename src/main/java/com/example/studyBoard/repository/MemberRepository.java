@@ -1,9 +1,11 @@
 package com.example.studyBoard.repository;
 
 import com.example.studyBoard.domain.MemberEntity;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -16,5 +18,8 @@ import java.util.Optional;
 public interface MemberRepository extends JpaRepository<MemberEntity, String> {
     Optional<MemberEntity> findById(String id);  // id로 사용자 정보를 가져옴
 
-    Optional<MemberEntity> save(String id, String pw);
+//    Optional<MemberEntity> save(String id, String pw);
+
+    @Override
+    <S extends MemberEntity> List<S> saveAll(Iterable<S> entities);
 }

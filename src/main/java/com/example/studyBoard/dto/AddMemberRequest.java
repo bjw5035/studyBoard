@@ -22,4 +22,11 @@ public class AddMemberRequest {
                 .pw(pw)
                 .build();
     }
+
+    public MemberEntity save(String id, String pw) {
+        return MemberEntity.builder()
+                .id(id)
+                .pw(pw)
+                .build();
+    }
 }
