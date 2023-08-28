@@ -20,7 +20,8 @@ import static org.springframework.boot.autoconfigure.security.servlet.PathReques
 @RequiredArgsConstructor
 @Configuration
 @EnableWebSecurity
-public class WebSecurityConfig implements UserDetailsService {
+public class WebSecurityConfig {
+//public class WebSecurityConfig implements UserDetailsService{
 
     private final MemberDetailsService memberDetailsService;
 
@@ -99,20 +100,20 @@ public class WebSecurityConfig implements UserDetailsService {
 
     // 인증 관리자 관련 설정
     // 사용자 정보를 가져올 서비스를 재정의하거나, 인증방법, 예)LDAP,JDBC기반 인증 등을 설정할 때 사용된다.
-    @Bean
-    public AuthenticationManager authenticationManager(HttpSecurity http, BCryptPasswordEncoder bCryptPasswordEncoder, UserDetailsService userDetailsService) throws Exception {
-
-        return http.getSharedObject(AuthenticationManagerBuilder.class)
-
-                // 사용자 정보 서비스 설정
-                // 설정하는 서비스 클래스는 반드시 MemberDetailsService를 상속받은 클래스 여야함
-                .userDetailsService(userDetailsService)
-
-                // 비밀번호를 암호화하기 위한 인코더를 설정한다.
-                .passwordEncoder(bCryptPasswordEncoder)
-                .and()
-                .build();
-    }
+//    @Bean
+//    public AuthenticationManager authenticationManager(HttpSecurity http, BCryptPasswordEncoder bCryptPasswordEncoder, UserDetailsService userDetailsService) throws Exception {
+//
+//        return http.getSharedObject(AuthenticationManagerBuilder.class)
+//
+//                // 사용자 정보 서비스 설정
+//                // 설정하는 서비스 클래스는 반드시 MemberDetailsService를 상속받은 클래스 여야함
+//                .userDetailsService(userDetailsService)
+//
+//                // 비밀번호를 암호화하기 위한 인코더를 설정한다.
+//                .passwordEncoder(bCryptPasswordEncoder)
+//                .and()
+//                .build();
+//    }
 
     // 패스워드 인코더로 사용할 빈 등록
     @Bean
@@ -120,8 +121,8 @@ public class WebSecurityConfig implements UserDetailsService {
         return new BCryptPasswordEncoder();
     }
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return null;
-    }
+//    @Override
+//    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+//        return null;
+//    }
 }

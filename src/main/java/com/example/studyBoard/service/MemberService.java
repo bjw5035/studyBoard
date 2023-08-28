@@ -21,9 +21,9 @@ public class MemberService {
 
 
     // 로그인 추가
-    public String save(AddMemberRequest dto) {
-        log.info("dto", dto);
-        return memberRepository.save(dto.toEntity()).getId();
+    public MemberEntity save(AddMemberRequest request) {
+        log.info("request", request);
+        return memberRepository.save(request.toEntity());
 //        return memberRepository.save(Member.builder()
 //                .id(dto.getId())
 //                // 패스워드 암호화

@@ -1,4 +1,10 @@
 package com.example.studyBoard.repository;
 
-public interface UserDetailsService {
-}
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+
+//@Service
+//@RequiredArgsConstructor
+//public interface UserDetailsService {
+//}
